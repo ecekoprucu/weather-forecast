@@ -1,10 +1,9 @@
 .card-wrapper {
-    padding: 25px 10px;
+    padding: 35px 25px;
     background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    box-shadow: 0px 2px 10px 2px #00000040;
     height: fit-content;
-    flex-direction: column;
     margin-bottom: 1em;
 }
 
@@ -27,6 +26,8 @@ span {
     display: flex;
     align-items: center;
     margin: 0.5em;
+    justify-content: space-evenly;
+    padding: 0.5em;
 }
 
 .description-wrapper > p {

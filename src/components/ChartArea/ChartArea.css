@@ -3,7 +3,7 @@
     align-self: center;
     justify-content: center;
     flex-direction: column;
-    flex: 1;
+    min-width: 40%;
 }
 
 p {

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 50%;
     gap: 1em;
     align-items: center;
 }
@@ -28,5 +28,6 @@
 @media screen and (max-width: 800px) {
     .report-area-wrapper {
         flex-direction: column;
+        height: 100%;
     }
 }

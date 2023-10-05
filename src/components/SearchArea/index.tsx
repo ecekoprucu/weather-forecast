@@ -8,7 +8,7 @@ export const SearchArea = () => {
   return (
     <div className='searchArea-wrapper'>
         <div className='title-wrapper'>
-            <h1>Weather Forecast</h1>
+            <p>Weather Forecast</p>
         </div>
         <div className="dropdown-container">
           <DropdownWithSearch data={cities}/>

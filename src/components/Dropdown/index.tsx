@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useContext } from 'react';
+import React, { FormEvent, useState, useContext, useRef } from 'react';
 
 import './Dropdown.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,6 +21,8 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState<string[]>([]);
     const [isSending, setIsSending] = useState(false);
+
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const { setData, setSelectedCity, setWeather } = useContext(DataContext) as ContextType
 
@@ -88,6 +90,12 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
         });
     }
 
+    const handleSelect = (city: string) => {
+        setSearchTerm(city);
+        setFilteredData([]);
+        inputRef.current?.focus();
+    }
+
     return (
         <form onSubmit={handleSubmit} className="search">
             <div>
@@ -97,21 +105,21 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
                             type="text"
                             placeholder="Search City"
                             value={searchTerm}
+                            ref={inputRef}
                             onChange={onInputChange}
                         />
-                         <FontAwesomeIcon icon={faSearch} color='#77B6EA' size='xs'/>
+                         <FontAwesomeIcon icon={faSearch} color='#77B6EA' size='sm'/>
                     </div>
                     { isSending ? <span className='loader'></span> : <></>}
                 </div>
                 {!!filteredData.length && <div className='dropdown-wrapper'>
                     <div className="dropdown-list">
-                    { filteredData.map((city, index) => (
+                    {filteredData.map((city, index) => (
                     <div
                         key={index}
                         className="dropdown-item"
                         onClick={() => {
-                            setSearchTerm(city);
-                            setFilteredData([]);
+                            handleSelect(city);
                         }}
                     >
                         {city}
