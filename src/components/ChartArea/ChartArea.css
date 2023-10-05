@@ -2,8 +2,8 @@
     display: flex;
     align-self: center;
     justify-content: center;
-    flex: 1;
     flex-direction: column;
+    flex: 1;
 }
 
 p {

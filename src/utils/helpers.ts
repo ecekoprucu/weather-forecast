@@ -6,3 +6,7 @@ export const findCountryCodeFromCity = (city: string) => {
         return foundCity.country_code;
     }
 }
+
+export const findIfCityExists = (city: string) => {
+    return cities.find(item => item.city_name.includes(city));
+}

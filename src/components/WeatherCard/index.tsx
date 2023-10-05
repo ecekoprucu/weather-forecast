@@ -8,7 +8,6 @@ type Props = {
 
 const WeatherCard = ({weather, selectedCity}: Props) => {
 
-   
     return (
         <div className='card-wrapper'>
             <h3>{!!weather.temperature && Math.round(weather.temperature)}°C</h3>

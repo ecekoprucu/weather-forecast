@@ -6,7 +6,7 @@
 
 input {
     background: #FFFFFF;
-    padding: 5px 10px;
+    padding: 5px 20px;
     border-radius: 20px;
     border: 0;
     color: black;
@@ -22,10 +22,11 @@ input:focus {
     margin: 20px 0;
     background: #FFFFFF;
     width: fit-content;
+    min-width: 200px;
     border-radius: 20px;
     align-items: center;
-    padding: 0 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px 5px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .dropdown-list {
@@ -80,7 +81,7 @@ button:focus {
 .loader {
     width: 15px;
     height: 15px;
-    border: 5px solid #FFF;
+    border: 5px solid #000;
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: rotation 1s linear infinite;

@@ -3,7 +3,7 @@ import React, { FormEvent, useState, useContext } from 'react';
 import './Dropdown.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { findCountryCodeFromCity } from 'utils/helpers';
+import { findCountryCodeFromCity, findIfCityExists } from 'utils/helpers';
 import { ContextType, DataContext } from 'context/dataContext';
 
 import { apiUrl } from 'data/apiData';
@@ -57,6 +57,12 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
             alert('Please enter a city name');
             return;
         }
+        
+        if(!findIfCityExists(searchTerm)) {
+            setSelectedCity('not found');
+            return;
+        }
+
         setIsSending(true);
         const countryCode = findCountryCodeFromCity(searchTerm);
         const requestUrl = apiUrl + '&city=' + searchTerm + '&country=' + countryCode;
@@ -87,15 +93,15 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
             <div>
                 <div className='wrapper'>
                     <div className='input-wrapper'>
-                        <FontAwesomeIcon icon={faSearch} color='#000000' size='xs'/>
                         <input
                             type="text"
-                            placeholder="Search city..."
+                            placeholder="Search City"
                             value={searchTerm}
                             onChange={onInputChange}
                         />
+                         <FontAwesomeIcon icon={faSearch} color='#77B6EA' size='xs'/>
                     </div>
-                    { !isSending ? <button type='submit'>Search</button> : <span className='loader'></span>}
+                    { isSending ? <span className='loader'></span> : <></>}
                 </div>
                 {!!filteredData.length && <div className='dropdown-wrapper'>
                     <div className="dropdown-list">

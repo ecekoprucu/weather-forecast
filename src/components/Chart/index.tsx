@@ -39,16 +39,16 @@ export const Chart = () => {
     labels,
     datasets: [
         {
-        label: 'Highest Temperature',
+        label: 'High',
         data: highTemperatureArray,
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: '#77B6EA',
+        backgroundColor: '#77B6EA',
         },
         {
-        label: 'Lowest Temperature',
+        label: 'Low',
         data: lowTemperatureArray,
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: '#000000',
+        backgroundColor: '#000000',
         },
     ],
     };
@@ -58,6 +58,11 @@ export const Chart = () => {
         plugins: {
           legend: {
             position: 'top' as const,
+            align: 'end' as const,
+            labels: {
+              usePointStyle: true,
+              boxWidth: 50,
+            }
           },
         },
         maintainAspectRatio: true,

@@ -1,20 +1,27 @@
 .title-wrapper {
     display: flex;
-    color: black;
+    width: 100vw;
+    background: #545454;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .searchArea-wrapper {
-    flex: 1;
     display: grid;
-    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-rows: 1fr 2fr;
     justify-content: space-around;
-    padding: 15px;
 }
 
 .weather-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
 }
 
 h1 {

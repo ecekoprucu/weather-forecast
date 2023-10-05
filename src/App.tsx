@@ -1,13 +1,14 @@
+import ReportArea from 'components/ReportArea'
 import './App.css'
-import { ChartArea } from './components/ChartArea'
-import { SearchArea } from './components/SearchArea'
-import { DataProvider } from './context/dataContext'
+import { SearchArea } from 'components/SearchArea'
+import { DataProvider } from 'context/dataContext'
+
 function App() {
   return (
       <DataProvider>
         <div className='container'>
           <SearchArea />
-          <ChartArea />
+          <ReportArea />
         </div>
       </DataProvider>
   )
