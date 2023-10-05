@@ -108,7 +108,9 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
                             ref={inputRef}
                             onChange={onInputChange}
                         />
-                         <FontAwesomeIcon icon={faSearch} color='#77B6EA' size='sm'/>
+                         <button type="submit" className='search-button'>
+                            <FontAwesomeIcon icon={faSearch} color='#77B6EA' size='sm'/>
+                        </button>
                     </div>
                     { isSending ? <span className='loader'></span> : <></>}
                 </div>

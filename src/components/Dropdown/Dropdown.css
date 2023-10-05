@@ -9,7 +9,12 @@ input {
     padding: 5px 20px;
     border-radius: 20px;
     border: 0;
-    color: black;
+    color: #545454;
+    font-family: Verdana;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 input:focus {
@@ -63,11 +68,9 @@ input:focus {
 }
 
 button[type="submit"] {
-  margin-left: 10px;
-}
-
-button {
     border: none;
+    background: none;
+    padding: 0 0.5em;
 }
 
 button:hover {
