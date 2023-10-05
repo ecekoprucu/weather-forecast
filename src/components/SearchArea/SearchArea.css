@@ -1,0 +1,39 @@
+.title-wrapper {
+    display: flex;
+    color: black;
+}
+
+.searchArea-wrapper {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.weather-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+span {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width: 800px), screen and (max-height: 750px) {
+    .searchArea-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}

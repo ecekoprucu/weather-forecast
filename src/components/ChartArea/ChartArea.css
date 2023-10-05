@@ -1,0 +1,11 @@
+.chart-wrapper {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+p {
+    color: black;
+}

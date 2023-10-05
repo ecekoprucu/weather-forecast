@@ -1,0 +1,29 @@
+.card-wrapper {
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    flex-direction: column;
+}
+
+h3 {
+    color: lightblue;
+    margin: 0.5em;
+}
+
+h3:nth-child(2) {
+    margin-bottom: 0;
+    color: black;
+}
+
+span {
+    font-size: 12px;
+    color: black;
+}
+
+.description-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0.5em;
+}

@@ -1,0 +1,1 @@
+export const apiUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?key=6d9f72fdc270472b9de8a1527f972a87';
