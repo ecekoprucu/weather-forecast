@@ -17,7 +17,7 @@ const WeatherCard = ({weather, selectedCity}: Props) => {
                 "month": "long"
             })}</span>
            <div className='description-wrapper'>
-            <img width={35} height={35} src={`/src/assets/icons/${weather.icon ? weather.icon : 'c04d'}.png`}/> 
+            <img width={35} height={35} src={`/assets/icons/${weather.icon ? weather.icon : 'c04d'}.png`}/> 
             <p>{weather.description}</p>
            </div>
         </div>
