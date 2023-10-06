@@ -18,7 +18,7 @@ interface DropdownWithSearchProps {
   data: DataItem[];
 }
 
-const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: DropdownWithSearchProps) => {
+const DropdownWithSearch = ({ data }: DropdownWithSearchProps) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState<string[]>([]);
     const [isSending, setIsSending] = useState(false);
