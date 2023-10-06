@@ -65,6 +65,7 @@ input:focus {
     padding: 0 3px ;
     position: absolute;
     right: 0;
+    border: none;
 }
 
 button[type="submit"] {

@@ -7,6 +7,7 @@ import { findCountryCodeFromCity, findIfCityExists } from 'utils/helpers';
 import { ContextType, DataContext } from 'context/dataContext';
 
 import { apiUrl } from 'data/apiData';
+import { DataType } from 'types/dataType';
 
 type DataItem = {
   country_code: string;
@@ -23,6 +24,8 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
     const [isSending, setIsSending] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const cache = useRef<Record<string, DataType[]>>({});
 
     const { setData, setSelectedCity, setWeather } = useContext(DataContext) as ContextType
 
@@ -65,6 +68,12 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
             return;
         }
 
+        if(cache.current[searchTerm]) {
+            setData(cache.current[searchTerm]);
+            setSelectedCity(searchTerm);
+            return;
+        }
+
         setIsSending(true);
         const countryCode = findCountryCodeFromCity(searchTerm);
         const requestUrl = apiUrl + '&city=' + searchTerm + '&country=' + countryCode;
@@ -84,6 +93,8 @@ const DropdownWithSearch: React.FC<DropdownWithSearchProps> = ({ data }: Dropdow
                 icon: data.data[0].weather.icon,
                 date: data.data[0].datetime,
             })
+
+            cache.current[searchTerm] = data.data;
         }).catch(err => {
             console.log(err);
             setIsSending(false);

@@ -25,8 +25,6 @@ ChartJS.register(
 );
 const isMobile = typeof screen.orientation !== 'undefined' && window.innerWidth <= 800;
 
-
-
 export const Chart = () => {
 
     const { setWeather, data } = useContext(DataContext) as ContextType;
