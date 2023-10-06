@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -65,7 +65,7 @@ export const Chart = () => {
         },
         maintainAspectRatio: true,
         aspectRatio: isMobile ? 1 : 2,
-        onClick: (event: ChartEvent, chartElement: ActiveElement[]) => {
+        onClick: (_event: ChartEvent, chartElement: ActiveElement[]) => {
           if (chartElement.length > 0) {
              const elementIndex = chartElement[0].index;
              const weatherDescription = data[elementIndex].weather.description;

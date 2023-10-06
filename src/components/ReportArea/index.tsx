@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import WeatherCard from 'components/WeatherCard';
 import { ContextType, DataContext } from 'context/dataContext';
 import { ChartArea } from 'components/ChartArea';
