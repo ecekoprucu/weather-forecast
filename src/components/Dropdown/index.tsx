@@ -3,7 +3,7 @@ import React, { FormEvent, useState, useContext, useRef } from 'react';
 import './Dropdown.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { findCountryCodeFromCity, findIfCityExists } from 'utils/helpers';
+import { doesCityHaveCode, findCountryCodeFromCity, findIfCityExists, getCountryCodeFromCity, separateCityName } from 'utils/helpers';
 import { ContextType, DataContext } from 'context/dataContext';
 
 import { apiUrl } from 'data/apiData';
@@ -75,14 +75,14 @@ const DropdownWithSearch = ({ data }: DropdownWithSearchProps) => {
         }
 
         setIsSending(true);
-        const countryCode = findCountryCodeFromCity(searchTerm);
-        const requestUrl = apiUrl + '&city=' + searchTerm + '&country=' + countryCode;
+        const countryCode = doesCityHaveCode(searchTerm) ? getCountryCodeFromCity(searchTerm) : findCountryCodeFromCity(searchTerm);
+        const requestUrl = apiUrl + '&city=' + (doesCityHaveCode(searchTerm) ? separateCityName(searchTerm) : searchTerm) + '&country=' + countryCode;
         
         fetch(requestUrl, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            },
+        },
         }).then(res => res.json()).then(data => {
             setData(data.data); 
             setSelectedCity(searchTerm);
